@@ -6,29 +6,25 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
+
+  - name: "recipes"
+    label: "Recipe"
+    folder: "src/pages/recipes"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "recipe"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Makes", name: "makes", widget: "number", default: 1, valueType: "int", min: 1}
+      - {label: "Ingredients", name: "ingredients", widget: "list"}
+      - {label: "Description", name: "description", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
 
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pages/about/index.md"
-        label: "About"
-        name: "about"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
       - file: "src/pages/products/index.md"
         label: "Products Page"
         name: "products"
